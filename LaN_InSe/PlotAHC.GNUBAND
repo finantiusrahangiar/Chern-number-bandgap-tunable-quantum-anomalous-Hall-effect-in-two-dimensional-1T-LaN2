@@ -1,0 +1,15 @@
+set term pngcairo size 300,600 enhanced font 'times new roman,12'
+set border 4095 lw 1.2
+set output "AHC.PNG"
+set nokey
+set ylabel "{/Symbol s}_{xy} ({e^2/h})"
+set xlabel "{/Symbol m} (eV) "
+set xrange [-0.5:3.5 ]
+set yrange [-0.3:0.3]
+set ytics 0.1
+#set mxtics 2
+set xtics 1
+set style line 7 lc rgb 'navy' pt 7 lt 7 lw 2 # black
+plot "Band_SOC.scfout.AHC.dat" using 4:1 w l lt 7 lw 2.0 lc rgb "navy",\
+"Band_SOC.scfout.AHC.dat" using 4:1 with point pt 7 lw 2.0 lc rgb "navy"
+pause -1
