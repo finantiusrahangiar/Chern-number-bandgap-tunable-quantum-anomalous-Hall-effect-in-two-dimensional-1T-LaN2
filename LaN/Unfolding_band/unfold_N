@@ -1,0 +1,23 @@
+set term pngcairo size 400,600 enhanced font 'times new roman,16'
+set output 'Unfolding_N-p.png'; 
+#set size 2,1;
+set nokey
+#set key columns 3
+set title "{}"
+set ytics 0.1
+#set mytics 4
+set xra [0.547312:1.094623]
+set yra [-0.24:0.26]
+set ylabel "eV"
+set xtics ("Г" 0.000000, "K" 0.547312, "M" 0.820968, "K'" 1.094623, "Г" 1.641937)
+set ylabel "{Energy (eV)}"
+#set xlabel "{/bold kpath}" 
+set style circle radius 0
+set xzeroaxis lt 0 lw 2 lc rgb 'black'
+set key right center
+set style circle radius 0
+plot 'SOC.BANDDAT1' notitle w l lw 1.0 lc rgb "black",\
+ 'SOC.unfold_orb'   using 1:2:($29+$32+$42+$45)*0.03  title "N-p_x" with circles lc rgb 'green' lw 2,\
+ 'SOC.unfold_orb'   using 1:2:($30+$33+$43+$46)*0.03  title "N-p_y"    with circles lc rgb 'blue' lw 2,\
+ 'SOC.unfold_orb'   using 1:2:($31+$34+$44+$47)*0.03  title "N-p_z"    with circles lc rgb 'red' lw 2,\
+

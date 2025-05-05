@@ -1,0 +1,16 @@
+set term pngcairo size 400,600 enhanced font 'times new roman,24'
+set output "DOS-total.PNG"
+set style data lines
+set nokey
+#set key top right
+set zeroaxis
+#set xtics ("" -8, "" -4, "DOS (states/eV)" 0, "" 4, ""8)
+set xtics ("-8" -8, "-4" -4, "0" 0, "4" 4, "8"8)
+set ytics 1
+set mytics 2
+set xra [-9:9]
+set yra [-2:1.5]
+set xlabel "DOS (states/eV)"
+set ylabel "Energy (eV)"
+plot "NonSOC.PDOS.Tetrahedron.atom1" using 2:1 ti "La" with lines lw 1.8 lc rgb "green", "NonSOC.PDOS.Tetrahedron.atom1" using 3:1 ti "" with lines lw 1.8 lc rgb "green", "NonSOC.PDOS.Tetrahedron.atomN" using 2:1 ti "N" with lines lw 1.8 lc rgb "blue", "NonSOC.PDOS.Tetrahedron.atomN" using 3:1 ti "" with lines lw 1.8 lc rgb "blue","NonSOC.DOS.Tetrahedron" using 2:1 ti "total" with lines lw 1.8 lc rgb "black","NonSOC.DOS.Tetrahedron" using 3:1 ti "" with lines lw 1.8 lc rgb "black"
+pause -1
